@@ -17,11 +17,14 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.AwsProvider = void 0;
+exports.AwsProvider = exports.AwsProviderIgnoreTagsOutputReference = exports.AwsProviderDefaultTagsOutputReference = exports.AwsProviderAssumeRoleOutputReference = void 0;
 var cdktf = require("cdktf");
 function awsProviderAssumeRoleToTerraform(struct) {
     if (!cdktf.canInspect(struct)) {
         return struct;
+    }
+    if (cdktf.isComplexElement(struct)) {
+        throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
     }
     return {
         duration_seconds: cdktf.numberToTerraform(struct.durationSeconds),
@@ -34,17 +37,238 @@ function awsProviderAssumeRoleToTerraform(struct) {
         transitive_tag_keys: cdktf.listMapper(cdktf.stringToTerraform)(struct.transitiveTagKeys)
     };
 }
+var AwsProviderAssumeRoleOutputReference = /** @class */ (function (_super) {
+    __extends(AwsProviderAssumeRoleOutputReference, _super);
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param isSingleItem True if this is a block, false if it's a list
+    */
+    function AwsProviderAssumeRoleOutputReference(terraformResource, terraformAttribute, isSingleItem) {
+        return _super.call(this, terraformResource, terraformAttribute, isSingleItem) || this;
+    }
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "durationSeconds", {
+        get: function () {
+            return this._durationSeconds;
+        },
+        set: function (value) {
+            this._durationSeconds = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    AwsProviderAssumeRoleOutputReference.prototype.resetDurationSeconds = function () {
+        this._durationSeconds = undefined;
+    };
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "durationSecondsInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._durationSeconds;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "externalId", {
+        get: function () {
+            return this._externalId;
+        },
+        set: function (value) {
+            this._externalId = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    AwsProviderAssumeRoleOutputReference.prototype.resetExternalId = function () {
+        this._externalId = undefined;
+    };
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "externalIdInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._externalId;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "policy", {
+        get: function () {
+            return this._policy;
+        },
+        set: function (value) {
+            this._policy = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    AwsProviderAssumeRoleOutputReference.prototype.resetPolicy = function () {
+        this._policy = undefined;
+    };
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "policyInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._policy;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "policyArns", {
+        get: function () {
+            return this._policyArns;
+        },
+        set: function (value) {
+            this._policyArns = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    AwsProviderAssumeRoleOutputReference.prototype.resetPolicyArns = function () {
+        this._policyArns = undefined;
+    };
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "policyArnsInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._policyArns;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "roleArn", {
+        get: function () {
+            return this._roleArn;
+        },
+        set: function (value) {
+            this._roleArn = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    AwsProviderAssumeRoleOutputReference.prototype.resetRoleArn = function () {
+        this._roleArn = undefined;
+    };
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "roleArnInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._roleArn;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "sessionName", {
+        get: function () {
+            return this._sessionName;
+        },
+        set: function (value) {
+            this._sessionName = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    AwsProviderAssumeRoleOutputReference.prototype.resetSessionName = function () {
+        this._sessionName = undefined;
+    };
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "sessionNameInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._sessionName;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "tags", {
+        get: function () {
+            return this._tags;
+        },
+        set: function (value) {
+            this._tags = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    AwsProviderAssumeRoleOutputReference.prototype.resetTags = function () {
+        this._tags = undefined;
+    };
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "tagsInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._tags;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "transitiveTagKeys", {
+        get: function () {
+            return this._transitiveTagKeys;
+        },
+        set: function (value) {
+            this._transitiveTagKeys = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    AwsProviderAssumeRoleOutputReference.prototype.resetTransitiveTagKeys = function () {
+        this._transitiveTagKeys = undefined;
+    };
+    Object.defineProperty(AwsProviderAssumeRoleOutputReference.prototype, "transitiveTagKeysInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._transitiveTagKeys;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return AwsProviderAssumeRoleOutputReference;
+}(cdktf.ComplexObject));
+exports.AwsProviderAssumeRoleOutputReference = AwsProviderAssumeRoleOutputReference;
 function awsProviderDefaultTagsToTerraform(struct) {
     if (!cdktf.canInspect(struct)) {
         return struct;
+    }
+    if (cdktf.isComplexElement(struct)) {
+        throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
     }
     return {
         tags: cdktf.hashMapper(cdktf.anyToTerraform)(struct.tags)
     };
 }
+var AwsProviderDefaultTagsOutputReference = /** @class */ (function (_super) {
+    __extends(AwsProviderDefaultTagsOutputReference, _super);
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param isSingleItem True if this is a block, false if it's a list
+    */
+    function AwsProviderDefaultTagsOutputReference(terraformResource, terraformAttribute, isSingleItem) {
+        return _super.call(this, terraformResource, terraformAttribute, isSingleItem) || this;
+    }
+    Object.defineProperty(AwsProviderDefaultTagsOutputReference.prototype, "tags", {
+        get: function () {
+            return this._tags;
+        },
+        set: function (value) {
+            this._tags = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    AwsProviderDefaultTagsOutputReference.prototype.resetTags = function () {
+        this._tags = undefined;
+    };
+    Object.defineProperty(AwsProviderDefaultTagsOutputReference.prototype, "tagsInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._tags;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return AwsProviderDefaultTagsOutputReference;
+}(cdktf.ComplexObject));
+exports.AwsProviderDefaultTagsOutputReference = AwsProviderDefaultTagsOutputReference;
 function awsProviderEndpointsToTerraform(struct) {
     if (!cdktf.canInspect(struct)) {
         return struct;
+    }
+    if (cdktf.isComplexElement(struct)) {
+        throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
     }
     return {
         accessanalyzer: cdktf.stringToTerraform(struct.accessanalyzer),
@@ -352,11 +576,69 @@ function awsProviderIgnoreTagsToTerraform(struct) {
     if (!cdktf.canInspect(struct)) {
         return struct;
     }
+    if (cdktf.isComplexElement(struct)) {
+        throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    }
     return {
         key_prefixes: cdktf.listMapper(cdktf.stringToTerraform)(struct.keyPrefixes),
         keys: cdktf.listMapper(cdktf.stringToTerraform)(struct.keys)
     };
 }
+var AwsProviderIgnoreTagsOutputReference = /** @class */ (function (_super) {
+    __extends(AwsProviderIgnoreTagsOutputReference, _super);
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param isSingleItem True if this is a block, false if it's a list
+    */
+    function AwsProviderIgnoreTagsOutputReference(terraformResource, terraformAttribute, isSingleItem) {
+        return _super.call(this, terraformResource, terraformAttribute, isSingleItem) || this;
+    }
+    Object.defineProperty(AwsProviderIgnoreTagsOutputReference.prototype, "keyPrefixes", {
+        get: function () {
+            return this._keyPrefixes;
+        },
+        set: function (value) {
+            this._keyPrefixes = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    AwsProviderIgnoreTagsOutputReference.prototype.resetKeyPrefixes = function () {
+        this._keyPrefixes = undefined;
+    };
+    Object.defineProperty(AwsProviderIgnoreTagsOutputReference.prototype, "keyPrefixesInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._keyPrefixes;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(AwsProviderIgnoreTagsOutputReference.prototype, "keys", {
+        get: function () {
+            return this._keys;
+        },
+        set: function (value) {
+            this._keys = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    AwsProviderIgnoreTagsOutputReference.prototype.resetKeys = function () {
+        this._keys = undefined;
+    };
+    Object.defineProperty(AwsProviderIgnoreTagsOutputReference.prototype, "keysInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._keys;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return AwsProviderIgnoreTagsOutputReference;
+}(cdktf.ComplexObject));
+exports.AwsProviderIgnoreTagsOutputReference = AwsProviderIgnoreTagsOutputReference;
 /**
 * Represents a {@link https://www.terraform.io/docs/providers/aws aws}
 */
@@ -887,10 +1169,10 @@ var AwsProvider = /** @class */ (function (_super) {
             skip_requesting_account_id: cdktf.booleanToTerraform(this._skipRequestingAccountId),
             token: cdktf.stringToTerraform(this._token),
             alias: cdktf.stringToTerraform(this._alias),
-            assume_role: cdktf.listMapper(awsProviderAssumeRoleToTerraform)(this._assumeRole),
-            default_tags: cdktf.listMapper(awsProviderDefaultTagsToTerraform)(this._defaultTags),
+            assume_role: awsProviderAssumeRoleToTerraform(this._assumeRole),
+            default_tags: awsProviderDefaultTagsToTerraform(this._defaultTags),
             endpoints: cdktf.listMapper(awsProviderEndpointsToTerraform)(this._endpoints),
-            ignore_tags: cdktf.listMapper(awsProviderIgnoreTagsToTerraform)(this._ignoreTags)
+            ignore_tags: awsProviderIgnoreTagsToTerraform(this._ignoreTags)
         };
     };
     // =================

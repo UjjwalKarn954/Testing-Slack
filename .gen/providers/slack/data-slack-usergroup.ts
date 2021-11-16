@@ -63,11 +63,11 @@ export class DataSlackUsergroup extends cdktf.TerraformDataSource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string;
+  private _description?: string | undefined; 
   public get description() {
     return this.getStringAttribute('description');
   }
-  public set description(value: string) {
+  public set description(value: string | undefined) {
     this._description = value;
   }
   public resetDescription() {
@@ -99,7 +99,7 @@ export class DataSlackUsergroup extends cdktf.TerraformDataSource {
   }
 
   // usergroup_id - computed: false, optional: false, required: true
-  private _usergroupId: string;
+  private _usergroupId?: string; 
   public get usergroupId() {
     return this.getStringAttribute('usergroup_id');
   }

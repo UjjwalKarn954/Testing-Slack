@@ -62,7 +62,8 @@ var DataAwsDefaultTags = /** @class */ (function (_super) {
     });
     Object.defineProperty(DataAwsDefaultTags.prototype, "tags", {
         get: function () {
-            return this.interpolationForAttribute('tags'); // Getting the computed value is not yet implemented
+            // Getting the computed value is not yet implemented
+            return this.interpolationForAttribute('tags');
         },
         set: function (value) {
             this._tags = value;

@@ -17,11 +17,14 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.CloudcontrolapiResource = void 0;
+exports.CloudcontrolapiResource = exports.CloudcontrolapiResourceTimeoutsOutputReference = void 0;
 var cdktf = require("cdktf");
 function cloudcontrolapiResourceTimeoutsToTerraform(struct) {
     if (!cdktf.canInspect(struct)) {
         return struct;
+    }
+    if (cdktf.isComplexElement(struct)) {
+        throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
     }
     return {
         create: cdktf.stringToTerraform(struct.create),
@@ -29,6 +32,82 @@ function cloudcontrolapiResourceTimeoutsToTerraform(struct) {
         update: cdktf.stringToTerraform(struct.update)
     };
 }
+var CloudcontrolapiResourceTimeoutsOutputReference = /** @class */ (function (_super) {
+    __extends(CloudcontrolapiResourceTimeoutsOutputReference, _super);
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param isSingleItem True if this is a block, false if it's a list
+    */
+    function CloudcontrolapiResourceTimeoutsOutputReference(terraformResource, terraformAttribute, isSingleItem) {
+        return _super.call(this, terraformResource, terraformAttribute, isSingleItem) || this;
+    }
+    Object.defineProperty(CloudcontrolapiResourceTimeoutsOutputReference.prototype, "create", {
+        get: function () {
+            return this.getStringAttribute('create');
+        },
+        set: function (value) {
+            this._create = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    CloudcontrolapiResourceTimeoutsOutputReference.prototype.resetCreate = function () {
+        this._create = undefined;
+    };
+    Object.defineProperty(CloudcontrolapiResourceTimeoutsOutputReference.prototype, "createInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._create;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CloudcontrolapiResourceTimeoutsOutputReference.prototype, "delete", {
+        get: function () {
+            return this.getStringAttribute('delete');
+        },
+        set: function (value) {
+            this._delete = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    CloudcontrolapiResourceTimeoutsOutputReference.prototype.resetDelete = function () {
+        this._delete = undefined;
+    };
+    Object.defineProperty(CloudcontrolapiResourceTimeoutsOutputReference.prototype, "deleteInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._delete;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CloudcontrolapiResourceTimeoutsOutputReference.prototype, "update", {
+        get: function () {
+            return this.getStringAttribute('update');
+        },
+        set: function (value) {
+            this._update = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    CloudcontrolapiResourceTimeoutsOutputReference.prototype.resetUpdate = function () {
+        this._update = undefined;
+    };
+    Object.defineProperty(CloudcontrolapiResourceTimeoutsOutputReference.prototype, "updateInput", {
+        // Temporarily expose input value. Use with caution.
+        get: function () {
+            return this._update;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return CloudcontrolapiResourceTimeoutsOutputReference;
+}(cdktf.ComplexObject));
+exports.CloudcontrolapiResourceTimeoutsOutputReference = CloudcontrolapiResourceTimeoutsOutputReference;
 /**
 * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource.html aws_cloudcontrolapi_resource}
 */
@@ -55,6 +134,7 @@ var CloudcontrolapiResource = /** @class */ (function (_super) {
             count: config.count,
             lifecycle: config.lifecycle
         }) || this;
+        _this.__timeoutsOutput = new CloudcontrolapiResourceTimeoutsOutputReference(_this, "timeouts", true);
         _this._desiredState = config.desiredState;
         _this._roleArn = config.roleArn;
         _this._schema = config.schema;
@@ -180,14 +260,14 @@ var CloudcontrolapiResource = /** @class */ (function (_super) {
     });
     Object.defineProperty(CloudcontrolapiResource.prototype, "timeouts", {
         get: function () {
-            return this.interpolationForAttribute('timeouts');
-        },
-        set: function (value) {
-            this._timeouts = value;
+            return this.__timeoutsOutput;
         },
         enumerable: false,
         configurable: true
     });
+    CloudcontrolapiResource.prototype.putTimeouts = function (value) {
+        this._timeouts = value;
+    };
     CloudcontrolapiResource.prototype.resetTimeouts = function () {
         this._timeouts = undefined;
     };

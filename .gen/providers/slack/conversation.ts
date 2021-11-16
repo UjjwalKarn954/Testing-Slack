@@ -80,7 +80,7 @@ export class Conversation extends cdktf.TerraformResource {
   // ==========
 
   // action_on_destroy - computed: false, optional: false, required: true
-  private _actionOnDestroy: string;
+  private _actionOnDestroy?: string; 
   public get actionOnDestroy() {
     return this.getStringAttribute('action_on_destroy');
   }
@@ -108,11 +108,11 @@ export class Conversation extends cdktf.TerraformResource {
   }
 
   // is_archived - computed: false, optional: true, required: false
-  private _isArchived?: boolean | cdktf.IResolvable;
+  private _isArchived?: boolean | cdktf.IResolvable | undefined; 
   public get isArchived() {
-    return this.getBooleanAttribute('is_archived');
+    return this.getBooleanAttribute('is_archived') as any;
   }
-  public set isArchived(value: boolean | cdktf.IResolvable ) {
+  public set isArchived(value: boolean | cdktf.IResolvable | undefined) {
     this._isArchived = value;
   }
   public resetIsArchived() {
@@ -125,18 +125,18 @@ export class Conversation extends cdktf.TerraformResource {
 
   // is_ext_shared - computed: true, optional: false, required: false
   public get isExtShared() {
-    return this.getBooleanAttribute('is_ext_shared');
+    return this.getBooleanAttribute('is_ext_shared') as any;
   }
 
   // is_org_shared - computed: true, optional: false, required: false
   public get isOrgShared() {
-    return this.getBooleanAttribute('is_org_shared');
+    return this.getBooleanAttribute('is_org_shared') as any;
   }
 
   // is_private - computed: false, optional: false, required: true
-  private _isPrivate: boolean | cdktf.IResolvable;
+  private _isPrivate?: boolean | cdktf.IResolvable; 
   public get isPrivate() {
-    return this.getBooleanAttribute('is_private');
+    return this.getBooleanAttribute('is_private') as any;
   }
   public set isPrivate(value: boolean | cdktf.IResolvable) {
     this._isPrivate = value;
@@ -148,11 +148,11 @@ export class Conversation extends cdktf.TerraformResource {
 
   // is_shared - computed: true, optional: false, required: false
   public get isShared() {
-    return this.getBooleanAttribute('is_shared');
+    return this.getBooleanAttribute('is_shared') as any;
   }
 
   // name - computed: false, optional: false, required: true
-  private _name: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -165,11 +165,11 @@ export class Conversation extends cdktf.TerraformResource {
   }
 
   // purpose - computed: false, optional: true, required: false
-  private _purpose?: string;
+  private _purpose?: string | undefined; 
   public get purpose() {
     return this.getStringAttribute('purpose');
   }
-  public set purpose(value: string ) {
+  public set purpose(value: string | undefined) {
     this._purpose = value;
   }
   public resetPurpose() {
@@ -181,11 +181,11 @@ export class Conversation extends cdktf.TerraformResource {
   }
 
   // topic - computed: false, optional: true, required: false
-  private _topic?: string;
+  private _topic?: string | undefined; 
   public get topic() {
     return this.getStringAttribute('topic');
   }
-  public set topic(value: string ) {
+  public set topic(value: string | undefined) {
     this._topic = value;
   }
   public resetTopic() {

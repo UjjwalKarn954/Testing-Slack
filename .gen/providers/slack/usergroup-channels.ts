@@ -58,7 +58,7 @@ export class UsergroupChannels extends cdktf.TerraformResource {
   // ==========
 
   // channels - computed: false, optional: false, required: true
-  private _channels: string[];
+  private _channels?: string[]; 
   public get channels() {
     return this.getListAttribute('channels');
   }
@@ -76,7 +76,7 @@ export class UsergroupChannels extends cdktf.TerraformResource {
   }
 
   // usergroup_id - computed: false, optional: false, required: true
-  private _usergroupId: string;
+  private _usergroupId?: string; 
   public get usergroupId() {
     return this.getStringAttribute('usergroup_id');
   }

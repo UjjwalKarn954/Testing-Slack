@@ -68,11 +68,11 @@ export class Usergroup extends cdktf.TerraformResource {
   // ==========
 
   // auto_type - computed: false, optional: true, required: false
-  private _autoType?: string;
+  private _autoType?: string | undefined; 
   public get autoType() {
     return this.getStringAttribute('auto_type');
   }
-  public set autoType(value: string ) {
+  public set autoType(value: string | undefined) {
     this._autoType = value;
   }
   public resetAutoType() {
@@ -84,11 +84,11 @@ export class Usergroup extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string | undefined; 
   public get description() {
     return this.getStringAttribute('description');
   }
-  public set description(value: string ) {
+  public set description(value: string | undefined) {
     this._description = value;
   }
   public resetDescription() {
@@ -100,7 +100,7 @@ export class Usergroup extends cdktf.TerraformResource {
   }
 
   // handle - computed: false, optional: false, required: true
-  private _handle: string;
+  private _handle?: string; 
   public get handle() {
     return this.getStringAttribute('handle');
   }
@@ -118,11 +118,11 @@ export class Usergroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string | undefined; 
   public get name() {
     return this.getStringAttribute('name');
   }
-  public set name(value: string ) {
+  public set name(value: string | undefined) {
     this._name = value;
   }
   public resetName() {

@@ -73,7 +73,7 @@ export class DataSlackGroup extends cdktf.TerraformDataSource {
   }
 
   // group_id - computed: false, optional: false, required: true
-  private _groupId: string;
+  private _groupId?: string; 
   public get groupId() {
     return this.getStringAttribute('group_id');
   }
@@ -92,22 +92,22 @@ export class DataSlackGroup extends cdktf.TerraformDataSource {
 
   // is_archived - computed: true, optional: false, required: false
   public get isArchived() {
-    return this.getBooleanAttribute('is_archived');
+    return this.getBooleanAttribute('is_archived') as any;
   }
 
   // is_ext_shared - computed: true, optional: false, required: false
   public get isExtShared() {
-    return this.getBooleanAttribute('is_ext_shared');
+    return this.getBooleanAttribute('is_ext_shared') as any;
   }
 
   // is_org_shared - computed: true, optional: false, required: false
   public get isOrgShared() {
-    return this.getBooleanAttribute('is_org_shared');
+    return this.getBooleanAttribute('is_org_shared') as any;
   }
 
   // is_shared - computed: true, optional: false, required: false
   public get isShared() {
-    return this.getBooleanAttribute('is_shared');
+    return this.getBooleanAttribute('is_shared') as any;
   }
 
   // name - computed: true, optional: false, required: false
@@ -116,11 +116,11 @@ export class DataSlackGroup extends cdktf.TerraformDataSource {
   }
 
   // purpose - computed: true, optional: true, required: false
-  private _purpose?: string;
+  private _purpose?: string | undefined; 
   public get purpose() {
     return this.getStringAttribute('purpose');
   }
-  public set purpose(value: string) {
+  public set purpose(value: string | undefined) {
     this._purpose = value;
   }
   public resetPurpose() {
@@ -132,11 +132,11 @@ export class DataSlackGroup extends cdktf.TerraformDataSource {
   }
 
   // topic - computed: true, optional: true, required: false
-  private _topic?: string;
+  private _topic?: string | undefined; 
   public get topic() {
     return this.getStringAttribute('topic');
   }
-  public set topic(value: string) {
+  public set topic(value: string | undefined) {
     this._topic = value;
   }
   public resetTopic() {

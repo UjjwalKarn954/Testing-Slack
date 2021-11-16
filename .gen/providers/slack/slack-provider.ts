@@ -60,11 +60,11 @@ export class SlackProvider extends cdktf.TerraformProvider {
   // ==========
 
   // token - computed: false, optional: false, required: true
-  private _token: string;
+  private _token?: string; 
   public get token() {
     return this._token;
   }
-  public set token(value: string) {
+  public set token(value: string| undefined) {
     this._token = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -73,11 +73,11 @@ export class SlackProvider extends cdktf.TerraformProvider {
   }
 
   // alias - computed: false, optional: true, required: false
-  private _alias?: string;
+  private _alias?: string | undefined; 
   public get alias() {
     return this._alias;
   }
-  public set alias(value: string  | undefined) {
+  public set alias(value: string | undefined| undefined) {
     this._alias = value;
   }
   public resetAlias() {

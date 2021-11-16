@@ -16,20 +16,20 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 var cdktf_1 = require("cdktf");
-var slack_1 = require("./.gen/providers/slack");
 var MyStack = /** @class */ (function (_super) {
     __extends(MyStack, _super);
     function MyStack(scope, name) {
-        return _super.call(this, scope, name) || this;
+        var _this = _super.call(this, scope, name) || this;
+        var stack = new MyStack(app, 'TestingSlack');
+        return _this;
+        // const slackToken = new TerraformVariable(stack, 'SLACK_TOKEN', {
+        //   type: 'string'
+        // });
+        // new SlackProvider(stack, "slack", {
+        //   token: slackToken.stringValue
+        // });
     }
     return MyStack;
 }(cdktf_1.TerraformStack));
 var app = new cdktf_1.App();
-var stack = new MyStack(app, 'Testing-Slack');
-var slackToken = new cdktf_1.TerraformVariable(stack, 'SLACK_TOKEN', {
-    type: 'string'
-});
-new slack_1.SlackProvider(stack, "slack", {
-    token: slackToken.stringValue
-});
 app.synth();

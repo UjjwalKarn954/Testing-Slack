@@ -23,6 +23,9 @@ function dataAwsIdentitystoreGroupFilterToTerraform(struct) {
     if (!cdktf.canInspect(struct)) {
         return struct;
     }
+    if (cdktf.isComplexElement(struct)) {
+        throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    }
     return {
         attribute_path: cdktf.stringToTerraform(struct.attributePath),
         attribute_value: cdktf.stringToTerraform(struct.attributeValue)
@@ -119,6 +122,7 @@ var DataAwsIdentitystoreGroup = /** @class */ (function (_super) {
     });
     Object.defineProperty(DataAwsIdentitystoreGroup.prototype, "filter", {
         get: function () {
+            // Getting the computed value is not yet implemented
             return this.interpolationForAttribute('filter');
         },
         set: function (value) {

@@ -1,21 +1,23 @@
-import { App, TerraformStack, TerraformVariable } from 'cdktf';
-import { SlackProvider } from './.gen/providers/slack'
-import { AwsProvider } from './.gen/providers/aws';
+import { App, S3Backend, TerraformStack, TerraformVariable } from 'cdktf';
 import { Construct } from 'constructs';
 
 
 
 class MyStack extends TerraformStack {
-    constructor(scope: Construct, name: string) {
-      super(scope, name);
-      const stack = new MyStack(app, 'TestingSlack');
-    const slackToken = new TerraformVariable(stack, 'SLACK_TOKEN', {
-    type: 'string'
-   });
-new SlackProvider(stack, "slack", {
-  token: slackToken.stringValue
-});
-    }   
+  constructor(scope: Construct, name: string) {
+    super(scope, name);
+
+    const stack = new MyStack(app, 'TestingSlack');
+
+    new S3Backend(this, {
+      bucket: "",
+      key: "/terraform.tfstate",
+      region: "us-east-1",
+    });
+    
+    new Conversation
+
+  }
 }
 
 const app = new App();

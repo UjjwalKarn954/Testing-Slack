@@ -59,7 +59,7 @@ export class DataSlackUser extends cdktf.TerraformDataSource {
 
   // has_2fa - computed: true, optional: false, required: false
   public get has2Fa() {
-    return this.getBooleanAttribute('has_2fa');
+    return this.getBooleanAttribute('has_2fa') as any;
   }
 
   // id - computed: true, optional: true, required: false
@@ -69,17 +69,17 @@ export class DataSlackUser extends cdktf.TerraformDataSource {
 
   // is_admin - computed: true, optional: false, required: false
   public get isAdmin() {
-    return this.getBooleanAttribute('is_admin');
+    return this.getBooleanAttribute('is_admin') as any;
   }
 
   // is_bot - computed: true, optional: false, required: false
   public get isBot() {
-    return this.getBooleanAttribute('is_bot');
+    return this.getBooleanAttribute('is_bot') as any;
   }
 
   // is_owner - computed: true, optional: false, required: false
   public get isOwner() {
-    return this.getBooleanAttribute('is_owner');
+    return this.getBooleanAttribute('is_owner') as any;
   }
 
   // name - computed: true, optional: false, required: false
@@ -88,7 +88,7 @@ export class DataSlackUser extends cdktf.TerraformDataSource {
   }
 
   // query_type - computed: false, optional: false, required: true
-  private _queryType: string;
+  private _queryType?: string; 
   public get queryType() {
     return this.getStringAttribute('query_type');
   }
@@ -101,7 +101,7 @@ export class DataSlackUser extends cdktf.TerraformDataSource {
   }
 
   // query_value - computed: false, optional: false, required: true
-  private _queryValue: string;
+  private _queryValue?: string; 
   public get queryValue() {
     return this.getStringAttribute('query_value');
   }

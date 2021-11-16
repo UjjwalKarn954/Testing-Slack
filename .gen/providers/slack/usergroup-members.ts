@@ -63,7 +63,7 @@ export class UsergroupMembers extends cdktf.TerraformResource {
   }
 
   // members - computed: false, optional: false, required: true
-  private _members: string[];
+  private _members?: string[]; 
   public get members() {
     return this.getListAttribute('members');
   }
@@ -76,7 +76,7 @@ export class UsergroupMembers extends cdktf.TerraformResource {
   }
 
   // usergroup_id - computed: false, optional: false, required: true
-  private _usergroupId: string;
+  private _usergroupId?: string; 
   public get usergroupId() {
     return this.getStringAttribute('usergroup_id');
   }
